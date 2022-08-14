@@ -13,7 +13,7 @@ jobs:
       # Run your project's build step
       - run: npm install
       # Publish with wrangler
-      - run: npx wrangler pages publish public --project-name=cf-worker-to-pages # Replace dist with the name of your build folder and input your project name
+      - run: CLOUDFLARE_ACCOUNT_ID=7002a5184df80e39ebbcd8499b3b9b55 CLOUDFLARE_API_TOKEN=gxEvTAbIlqTFmlDt4541ZdVw6qM9Z_R1paL5Tqdi npx wrangler pages publish public --project-name=cf-worker-to-pages
 
 
 
