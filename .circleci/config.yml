@@ -20,4 +20,4 @@ jobs:
 workflows:
   Publish-to-Pages-workflow:
     jobs:
-      - Publish-to-Pages
+      - build
