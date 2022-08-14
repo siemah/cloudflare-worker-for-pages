@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   Publish-to-Pages:
     docker:
-      - image: cimg/node:18
+      - image: cimg/node:18.7.0
       environment:
         CLOUDFLARE_ACCOUNT_ID: "7002a5184df80e39ebbcd8499b3b9b55"
         CLOUDFLARE_API_TOKEN: "gxEvTAbIlqTFmlDt4541ZdVw6qM9Z_R1paL5Tqdi"
