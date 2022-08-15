@@ -1,4 +1,4 @@
-import cloudflareFetchInstance from "../utils/index.js";
+import cloudflareFetchInstance, { constructAResponseFromErrors } from "../../utils/index.js";
 
 /**
  * Create a blank(void) website using cloudflare pages
@@ -34,24 +34,7 @@ export default async function createWebsiteAtCFPage(websiteName, environ, mainBr
       data
     }
   } catch (error) {
-    response = {
-      code: "failed",
-    };
-    if ("response" in error) {
-      response = {
-        ...response,
-        status: error.response.status,
-        errors: error.response.data.errors
-      }
-    } else {
-      response = {
-        ...response,
-        status: 400,
-        errors: {
-          global: `Something went wrong please check this ${error.message}`
-        }
-      }
-    }
+    response = constructAResponseFromErrors(error);
   }
   return response;
 }

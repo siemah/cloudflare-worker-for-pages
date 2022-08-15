@@ -19,3 +19,31 @@ export default function cloudflareFetchInstance(cfCredentials, requestConfig = {
 
   return Axios;
 }
+
+/**
+ * Construct response based on a thrown errors
+ * @param {Error} error instance of the thrown error
+ * @returns well structured response for a thrown errors
+ */
+export function constructAResponseFromErrors(error) {
+  let response = {
+    code: "failed",
+  };
+  if ("response" in error) {
+    response = {
+      ...response,
+      status: error.response.status,
+      errors: error.response.data.errors
+    }
+  } else {
+    response = {
+      ...response,
+      status: 400,
+      errors: {
+        global: `Something went wrong please check this ${error.message}`
+      }
+    }
+  }
+
+  return response;
+}
