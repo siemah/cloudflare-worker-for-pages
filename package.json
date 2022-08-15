@@ -9,6 +9,7 @@
     "wrangler": "^2.0.25"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
   }
 }
